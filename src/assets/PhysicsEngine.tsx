@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const PhysicsEngine: React.FC = () => {
   const sceneRef = useRef<HTMLDivElement>(null);
-  const [engine] = useState(() => Engine.create({ gravity: { x: 0, y: 10 } }));
+  const [engine] = useState(() => Engine.create({ gravity: { x: 0, y: 5 } }));
   const wallThickness = 500;
 
   const addImage = () => {
