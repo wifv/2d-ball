@@ -62,39 +62,6 @@ const PhysicsEngine: React.FC = () => {
 
     const runner = Runner.create();
 
-    // Initial images
-    const imgBody1 = Bodies.rectangle(
-      render.options.width! / 3,
-      200,
-      Math.round(861 / 8),
-      Math.round(1280 / 8),
-      {
-        render: {
-          sprite: {
-            texture: 'fish.jpg',
-            xScale: 0.2,
-            yScale: 0.2,
-          },
-        },
-      }
-    );
-
-    const imgBody2 = Bodies.rectangle(
-      (render.options.width! / 3) * 2,
-      200,
-      Math.round(748 / 8),
-      Math.round(1280 / 8),
-      {
-        render: {
-          sprite: {
-            texture: 'cat.jpg',
-            xScale: 0.2,
-            yScale: 0.2,
-          },
-        },
-      }
-    );
-
     const ground = Bodies.rectangle(
       render.options.width! / 2,
       render.options.height! + wallThickness / 2,
