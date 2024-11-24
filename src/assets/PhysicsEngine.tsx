@@ -7,23 +7,32 @@ const PhysicsEngine: React.FC = () => {
   const wallThickness = 500;
 
   const addImage = () => {
-    let imageWidth
-    let imageHeight
+    let imageWidth: number = 100
+    let imageHeight: number = 100
     let texture = ''
 
-    if (Math.round(Math.random())) {
-      texture = 'fish.jpg'
-      imageWidth = Math.round(861 / 8);
-      imageHeight = Math.round(1280 / 8);
-    } else {
-      texture = 'cat.jpg'
-      imageWidth = Math.round(748 / 8);
-      imageHeight = Math.round(1280 / 8);
+    const randomCase = Math.ceil(Math.random() * 3);
+    switch (randomCase) {
+      case 1:
+        texture = 'fish.jpg'
+        imageWidth = Math.round(861 / 8);
+        imageHeight = Math.round(1280 / 8);
+        break
+      case 2:
+        texture = 'cat.jpg'
+        imageWidth = Math.round(748 / 8);
+        imageHeight = Math.round(1280 / 8);
+        break
+      case 3:
+        texture = 'hat.jpg'
+        imageWidth = Math.round(720 / 8);
+        imageHeight = Math.round(705 / 8);
+        break
     }
 
     const newBody = Bodies.rectangle(
-      Math.random() * window.innerWidth, // Random x position
-      50, // Starting y position
+      Math.random() * window.innerWidth,
+      0,
       imageWidth,
       imageHeight,
       {
@@ -42,7 +51,6 @@ const PhysicsEngine: React.FC = () => {
 
   const removeImages = () => {
     Composite.allBodies(engine.world).forEach((body) => {
-      // Remove any body that is not static (assumes walls are static)
       if (!body.isStatic) {
         Composite.remove(engine.world, body);
       }
